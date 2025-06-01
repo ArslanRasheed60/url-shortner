@@ -1,82 +1,159 @@
-# MyWorkspace
+# URL Shortener Application
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+<div align="center">
+  <h1>🔗 URL Shortener</h1>
+  <p>A full-stack URL shortener application with analytics, built with NestJS, React, and MongoDB</p>
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=nestjs&logoColor=white)](https://nestjs.com/)
+  [![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+  [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+</div>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+## 🌟 Features
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/nest?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+- **URL Shortening**: Convert long URLs into short, shareable links
+- **User Authentication**: Secure user registration and login
+- **Analytics Dashboard**: Track clicks, referrers, and device information
+- **Responsive Design**: Works on desktop and mobile devices
+- **RESTful API**: Well-documented API endpoints
+- **Modern Tech Stack**: Built with NestJS, React, TypeScript, and MongoDB
 
-## Finish your CI setup
+## 🚀 Quick Start
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/gkMdZb0DyI)
+### Prerequisites
 
+- Node.js (v16 or later)
+- MongoDB (local or MongoDB Atlas)
+- npm or yarn
 
-## Run tasks
+### Installation
 
-To run the dev server for your app, use:
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd my-workspace
+   ```
 
-```sh
-npx nx serve url-shortner
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   - Create a `.env` file in the root directory:
+     ```env
+     # Backend
+     PORT=3000
+     MONGODB_URI=mongodb://localhost:27017/url_shortener
+     NODE_ENV=development
+     ```
+   - Create a `.env` file in the `web` directory:
+     ```env
+     VITE_API_URL=http://localhost:3000/api
+     ```
+
+4. **Start the development servers**
+   ```bash
+   # Start both backend and frontend
+   npm run start:dev
+   
+   # Or start them separately
+   npm run start:api:dev    # Backend
+   npm run start:web:dev    # Frontend
+   ```
+
+5. **Access the application**
+   - Frontend: http://localhost:4200
+   - Backend API: http://localhost:3000
+   - API Documentation: http://localhost:3000/api/docs
+
+## 🛠 Project Structure
+
+For a detailed project structure, please see [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md).
+
+## 📚 API Documentation
+
+API documentation is available at `/api/docs` when running the backend in development mode. The API is built with OpenAPI (Swagger) and provides interactive documentation.
+
+### Main API Endpoints
+
+- **Users**
+  - `POST /users` - Register a new user
+  - `GET /users` - Get all users (admin only)
+  - `GET /users/:id` - Get user by ID
+
+- **URL Shortener**
+  - `POST /url-shortner` - Create a new short URL
+  - `GET /url-shortner/user/:userId` - Get URLs by user
+  - `GET /s/:shortUrl` - Redirect to original URL
+  - `DELETE /url-shortner/:id` - Delete a URL
+
+- **Analytics**
+  - `GET /analytics/:urlShortnerId` - Get analytics for a URL
+  - `GET /analytics/summary/:urlShortnerId` - Get analytics summary
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+npm test
+
+# Run backend tests
+npm run test:api
+
+# Run frontend tests
+npm run test:web
+
+# Run e2e tests
+npm run e2e:api
+npm run e2e:web
 ```
 
-To create a production bundle:
+## 🚀 Deployment
 
-```sh
-npx nx build url-shortner
-```
+### Backend
 
-To see all available targets to run for a project, run:
+1. Build the production bundle:
+   ```bash
+   npm run build:api:prod
+   ```
 
-```sh
-npx nx show project url-shortner
-```
+2. Start the production server:
+   ```bash
+   NODE_ENV=production node dist/apps/url-shortner/main.js
+   ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+### Frontend
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+1. Update the `VITE_API_URL` in `web/.env` to point to your production API
 
-## Add new projects
+2. Build the production bundle:
+   ```bash
+   cd web
+   npm run build:prod
+   ```
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+3. Deploy the contents of `web/dist` to your hosting provider (Netlify, Vercel, etc.)
 
-Use the plugin's generator to create new projects.
+## 🤝 Contributing
 
-To generate a new application, use:
+Contributions are welcome! Please follow these steps:
 
-```sh
-npx nx g @nx/nest:app demo
-```
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-To generate a new library, use:
+## 📄 License
 
-```sh
-npx nx g @nx/node:lib mylib
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+## 🙏 Acknowledgments
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/nx-api/nest?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [NestJS](https://nestjs.com/) - A progressive Node.js framework
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [MongoDB](https://www.mongodb.com/) - The database for modern applications
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [Nx](https://nx.dev/) - Smart, Fast and Extensible Build System
