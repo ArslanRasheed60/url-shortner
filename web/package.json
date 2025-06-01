@@ -1,0 +1,13 @@
+{
+  "name": "url-shortener-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^6.21.1",
+    "axios": "^1.6.0",
+    "chart.js": "^4.4.1",
+    "react-chartjs-2": "^5.2.0"
+  }
+}

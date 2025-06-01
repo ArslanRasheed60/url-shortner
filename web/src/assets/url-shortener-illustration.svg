@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="400" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background elements -->
+  <rect x="50" y="50" width="400" height="300" rx="20" fill="#EBF5FF" />
+  <circle cx="150" cy="200" r="100" fill="#DBEAFE" />
+  
+  <!-- Link Icon Left -->
+  <circle cx="170" cy="200" r="40" fill="#3B82F6" opacity="0.9" />
+  <path d="M155 185L145 195C138.333 201.667 138.333 212.333 145 219C151.667 225.667 162.333 225.667 169 219L179 209" stroke="white" stroke-width="6" stroke-linecap="round" />
+  
+  <!-- Arrow -->
+  <path d="M220 200L280 200" stroke="#3B82F6" stroke-width="6" stroke-linecap="round" />
+  <path d="M270 185L285 200L270 215" stroke="#3B82F6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Link Icon Right -->
+  <circle cx="330" cy="200" r="40" fill="#3B82F6" opacity="0.9" />
+  <path d="M315 185L305 195C298.333 201.667 298.333 212.333 305 219C311.667 225.667 322.333 225.667 329 219L339 209" stroke="white" stroke-width="6" stroke-linecap="round" />
+  
+  <!-- Decorative elements -->
+  <circle cx="420" cy="100" r="15" fill="#93C5FD" />
+  <circle cx="80" cy="300" r="10" fill="#93C5FD" />
+  <circle cx="400" cy="280" r="8" fill="#93C5FD" />
+  <circle cx="100" cy="120" r="12" fill="#93C5FD" />
+</svg>
