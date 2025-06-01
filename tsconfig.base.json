@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@app/*": ["apps/url-shortner/src/app/*"],
+      "@analytics/*": ["apps/url-shortner/src/app/analytics/*"],
+      "@url-shortner/*": ["apps/url-shortner/src/app/url-shortner/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
